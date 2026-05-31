@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+  <System>
+    <AppName>AutoFrame</AppName>
+    <Version>1.0.0</Version>
+    <Language>zh-CN</Language>
+    <DateFormat>yyyy-MM-dd</DateFormat>
+    <TimeFormat>HH:mm:ss</TimeFormat>
+  </System>
+  
+  <Communication>
+    <OPC>
+      <Server>OPC.SimaticNET</Server>
+      <UpdateInterval>1000</UpdateInterval>
+    </OPC>
+    <TCP>
+      <Port>8080</Port>
+      <BufferSize>1024</BufferSize>
+    </TCP>
+    <MQTT>
+      <Broker>localhost</Broker>
+      <Port>1883</Port>
+      <ClientId>AutoFrame</ClientId>
+    </MQTT>
+  </Communication>
+  
+  <Motion>
+    <Type>PCIeM60</Type>
+    <ConfigPath>Config/MotionConfig.xml</ConfigPath>
+    <DefaultSpeed>10</DefaultSpeed>
+    <DefaultAcceleration>5</DefaultAcceleration>
+  </Motion>
+  
+  <PLC>
+    <Type>ModbusTCP</Type>
+    <IP>192.168.1.100</IP>
+    <Port>502</Port>
+    <UpdateInterval>500</UpdateInterval>
+  </PLC>
+  
+  <Vision>
+    <ConfigPath>Config/VisionConfig.xml</ConfigPath>
+    <InspectionTimeout>5000</InspectionTimeout>
+  </Vision>
+  
+  <MES>
+    <Url>http://localhost:8000</Url>
+    <UpdateInterval>10000</UpdateInterval>
+  </MES>
+  
+  <Robot>
+    <Type>ABB</Type>
+    <ConfigPath>Config/RobotConfig.xml</ConfigPath>
+  </Robot>
+  
+  <Logging>
+    <Level>Info</Level>
+    <Path>Logs/</Path>
+    <MaxFileSize>10485760</MaxFileSize>
+  </Logging>
+</Config>

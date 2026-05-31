@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Points>
+  <PointGroup name="Motion">
+    <Point id="Home" x="0" y="0" z="0" r="0" />
+    <Point id="LoadingPosition" x="100" y="200" z="300" r="0" />
+    <Point id="UnloadingPosition" x="400" y="500" z="600" r="0" />
+    <Point id="DetectionPosition1" x="200" y="300" z="400" r="0" />
+    <Point id="DetectionPosition2" x="300" y="400" z="500" r="0" />
+  </PointGroup>
+  
+  <PointGroup name="IO">
+    <Point id="Light1" port="0" pin="1" />
+    <Point id="Light2" port="0" pin="2" />
+    <Point id="Cylinder1" port="0" pin="3" />
+    <Point id="Cylinder2" port="0" pin="4" />
+    <Point id="Sensor1" port="1" pin="1" />
+    <Point id="Sensor2" port="1" pin="2" />
+  </PointGroup>
+  
+  <PointGroup name="PLC">
+    <Point id="StartButton" address="M0.0" />
+    <Point id="StopButton" address="M0.1" />
+    <Point id="ResetButton" address="M0.2" />
+    <Point id="RunningIndicator" address="Q0.0" />
+    <Point id="ErrorIndicator" address="Q0.1" />
+    <Point id="ProductCount" address="DB1.DBD0" />
+  </PointGroup>
+</Points>

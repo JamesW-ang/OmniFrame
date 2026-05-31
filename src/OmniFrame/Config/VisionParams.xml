@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisionParams>
+  <CannyLow>30</CannyLow>
+  <CannyHigh>150</CannyHigh>
+  <Clahe>2.0</Clahe>
+  <MinArea>100</MinArea>
+  <Confidence>0.8</Confidence>
+  <NmsIou>0.45</NmsIou>
+  <success>True</success>
+  <result>{'CannyLow': 30, 'CannyHigh': 200, 'Clahe': 2.0, 'MinArea': 100, 'Confidence': 0.85, 'NmsIou': 0.45, 'success': True, 'result': '{\'CannyLow\': 30, \'CannyHigh\': 150, \'Clahe\': 2.0, \'MinArea\': 100, \'Confidence\': 0.8, \'NmsIou\': 0.45, \'success\': True, \'result\': "{\'CannyLow\': 30, \'CannyHigh\': 150, \'Clahe\': 2, \'MinArea\': 100, \'Confidence\': 0.8, \'NmsIou\': 0.45}", \'file_path\': \'/Users/james/Desktop/Upper/Upper/Upper/AutoFrame/Config/VisionParams.xml\', \'config_type\': \'vision\', \'error\': \'None\'}', 'file_path': '/Users/james/Desktop/Upper/Upper/src/OmniFrame/Config/VisionParams.xml', 'config_type': 'vision', 'error': 'None'}</result>
+  <file_path>/Users/james/Desktop/Upper/Upper/src/OmniFrame/Config/VisionParams.xml</file_path>
+  <config_type>vision</config_type>
+  <error>None</error>
+</VisionParams>

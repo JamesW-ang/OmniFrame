@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfUserInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <UserInfo>
+    <UserId>admin</UserId>
+    <UserName>Administrator</UserName>
+    <PasswordHash>$2a$11$khlERM8qkVYyhHJxlmA5O.pg.rZm8VQlrJ2z5KyOpYoG7ajKc5SAG</PasswordHash>
+    <Level>Administrator</Level>
+    <Department>System</Department>
+    <CreateTime>2026-03-28T13:51:27.1676815+08:00</CreateTime>
+    <LastLoginTime xsi:nil="true" />
+    <IsActive>true</IsActive>
+    <MustChangePassword>true</MustChangePassword>
+    <Description>系统默认管理员账户</Description>
+  </UserInfo>
+</ArrayOfUserInfo>

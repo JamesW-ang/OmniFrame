@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>MockBusinessPlugin</AssemblyName>
+    <RootNamespace>OmniFrame.Plugins.MockBusiness</RootNamespace>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>..\..\..\Plugins\MockBusinessPlugin\1.0.0\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\OmniFrame.Sdk\OmniFrame.Sdk.csproj" />
+  </ItemGroup>
+
+  <Target Name="GenerateSigFile" AfterTargets="Build" Condition="'$(OS)' == 'Windows_NT'">
+    <Exec Command="certutil -hashfile &quot;$(TargetPath)&quot; SHA256 | findstr /v &quot;hash SHA256 CertUtil&quot; > &quot;$(TargetPath).sig&quot;" ContinueOnError="true" />
+  </Target>
+
+</Project>

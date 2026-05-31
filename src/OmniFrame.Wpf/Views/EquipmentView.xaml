@@ -1,0 +1,12 @@
+<UserControl x:Class="OmniFrame.Wpf.Views.EquipmentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="12"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="{Binding IsReady, StringFormat='设备就绪: {0}'}" FontSize="14" Foreground="{StaticResource AccentBrush}" Margin="0,0,0,12"/>
+        <ItemsControl Grid.Row="1" ItemsSource="{Binding Devices}">
+            <ItemsControl.ItemTemplate><DataTemplate><Border Background="{StaticResource SurfaceBrush}" CornerRadius="4" Padding="12" Margin="0,4">
+                <StackPanel Orientation="Horizontal"><TextBlock Text="{Binding Name}" Width="200" Foreground="{StaticResource TextBrush}" FontSize="14"/><TextBlock Text="{Binding Type}" Foreground="{StaticResource TextSecondaryBrush}" FontSize="12"/></StackPanel>
+            </Border></DataTemplate></ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>

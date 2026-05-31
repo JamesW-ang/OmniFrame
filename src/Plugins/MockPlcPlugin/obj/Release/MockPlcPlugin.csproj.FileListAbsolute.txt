@@ -1,0 +1,10 @@
+/Users/james/Desktop/Upper_1/Upper/Plugins/MockPlcPlugin/1.0.0/MockPlcPlugin.dll
+/Users/james/Desktop/Upper_1/Upper/Plugins/MockPlcPlugin/1.0.0/MockPlcPlugin.pdb
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockPlcPlugin/obj/Release/MockPlcPlugin.csproj.AssemblyReference.cache
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockPlcPlugin/obj/Release/MockPlcPlugin.GeneratedMSBuildEditorConfig.editorconfig
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockPlcPlugin/obj/Release/MockPlcPlugin.AssemblyInfoInputs.cache
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockPlcPlugin/obj/Release/MockPlcPlugin.AssemblyInfo.cs
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockPlcPlugin/obj/Release/MockPlcPlugin.csproj.CoreCompileInputs.cache
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockPlcPlugin/obj/Release/MockPlcP.FE6121A2.Up2Date
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockPlcPlugin/obj/Release/MockPlcPlugin.dll
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockPlcPlugin/obj/Release/MockPlcPlugin.pdb

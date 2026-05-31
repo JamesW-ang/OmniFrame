@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运控系统远程监控</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        header .status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 18px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .system-status {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .status-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .status-running {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .status-stopped {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .status-paused {
+            background-color: #ff9800;
+            color: white;
+        }
+
+        .device-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .device-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .device-item:last-child {
+            border-bottom: none;
+        }
+
+        .device-name {
+            font-weight: bold;
+        }
+
+        .device-status {
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+
+        .device-online {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .device-offline {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .control-panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .control-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-start {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-stop {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .btn-reset {
+            background-color: #ff9800;
+            color: white;
+        }
+
+        .control-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .control-btn:active {
+            transform: scale(0.95);
+        }
+
+        .log-panel {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .log-content {
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .log-entry {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .log-time {
+            color: #666;
+            margin-right: 10px;
+        }
+
+        .log-info {
+            color: #2196F3;
+        }
+
+        .log-warning {
+            color: #ff9800;
+        }
+
+        .log-error {
+            color: #f44336;
+        }
+
+        .chart-container {
+            height: 200px;
+            margin-top: 15px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s ease;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>运控系统远程监控</h1>
+            <div class="status">
+                <div class="status-indicator">
+                    <div class="status-dot"></div>
+                    <span id="connectionStatus">已连接</span>
+                </div>
+                <div>
+                    <span id="currentTime"></span>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard">
+            <!-- 系统状态卡片 -->
+            <div class="card">
+                <h3>系统状态</h3>
+                <div class="system-status">
+                    <span class="status-badge status-running" id="systemStatus">运行中</span>
+                    <span id="runningTime">运行时间: 00:00:00</span>
+                </div>
+                <div>
+                    <div class="stat-label">生产订单</div>
+                    <div class="stat-value" id="orderCount">0</div>
+                </div>
+                <div>
+                    <div class="stat-label">工作站数量</div>
+                    <div class="stat-value" id="stationCount">0</div>
+                </div>
+            </div>
+
+            <!-- 生产统计卡片 -->
+            <div class="card">
+                <h3>生产统计</h3>
+                <div>
+                    <div class="stat-label">总产量</div>
+                    <div class="stat-value" id="totalQuantity">0</div>
+                </div>
+                <div>
+                    <div class="stat-label">合格产量</div>
+                    <div class="stat-value" style="color: #4CAF50;" id="passQuantity">0</div>
+                </div>
+                <div>
+                    <div class="stat-label">不合格产量</div>
+                    <div class="stat-value" style="color: #f44336;" id="failQuantity">0</div>
+                </div>
+                <div>
+                    <div class="stat-label">良率</div>
+                    <div class="stat-value" id="yieldRate">0%</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="yieldProgress" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 设备状态卡片 -->
+            <div class="card">
+                <h3>设备状态</h3>
+                <div class="device-list" id="deviceList">
+                    <!-- 设备列表将通过JavaScript动态生成 -->
+                </div>
+            </div>
+
+            <!-- 系统性能卡片 -->
+            <div class="card">
+                <h3>系统性能</h3>
+                <div>
+                    <div class="stat-label">CPU使用率</div>
+                    <div class="stat-value" id="cpuUsage">0%</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="cpuProgress" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <div style="margin-top: 15px;">
+                    <div class="stat-label">内存使用率</div>
+                    <div class="stat-value" id="memoryUsage">0%</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="memoryProgress" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 远程控制卡片 -->
+            <div class="card">
+                <h3>远程控制</h3>
+                <div class="control-panel">
+                    <button class="control-btn btn-start" onclick="startSystem()">启动系统</button>
+                    <button class="control-btn btn-stop" onclick="stopSystem()">停止系统</button>
+                    <button class="control-btn btn-reset" onclick="resetSystem()">复位系统</button>
+                </div>
+                <div style="margin-top: 15px;">
+                    <label for="stationSelect">选择工作站:</label>
+                    <select id="stationSelect" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                        <option value="">请选择工作站</option>
+                    </select>
+                </div>
+                <div class="control-panel" style="margin-top: 10px;">
+                    <button class="control-btn btn-start" onclick="startStation()">启动工作站</button>
+                    <button class="control-btn btn-stop" onclick="stopStation()">停止工作站</button>
+                    <button class="control-btn btn-reset" onclick="resetStation()">复位工作站</button>
+                </div>
+            </div>
+
+            <!-- 日志卡片 -->
+            <div class="card log-panel">
+                <h3>系统日志</h3>
+                <div class="log-content" id="logContent">
+                    <!-- 日志内容将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 运控系统远程监控平台 | 版本 1.0.0</p>
+        </footer>
+    </div>
+
+    <script>
+        // WebSocket连接
+        let ws = null;
+        let reconnectAttempts = 0;
+        const maxReconnectAttempts = 5;
+
+        // 初始化WebSocket连接
+        function initWebSocket() {
+            const wsUrl = 'ws://localhost:8080';
+            ws = new WebSocket(wsUrl);
+
+            ws.onopen = function(event) {
+                console.log('WebSocket连接成功');
+                document.getElementById('connectionStatus').textContent = '已连接';
+                document.querySelector('.status-dot').style.backgroundColor = '#4CAF50';
+                reconnectAttempts = 0;
+            };
+
+            ws.onmessage = function(event) {
+                const data = JSON.parse(event.data);
+                handleRealTimeData(data);
+            };
+
+            ws.onclose = function(event) {
+                console.log('WebSocket连接关闭');
+                document.getElementById('connectionStatus').textContent = '未连接';
+                document.querySelector('.status-dot').style.backgroundColor = '#f44336';
+                
+                // 尝试重连
+                if (reconnectAttempts < maxReconnectAttempts) {
+                    reconnectAttempts++;
+                    console.log(`尝试重连 (${reconnectAttempts}/${maxReconnectAttempts})`);
+                    setTimeout(initWebSocket, 3000);
+                }
+            };
+
+            ws.onerror = function(error) {
+                console.error('WebSocket错误:', error);
+            };
+        }
+
+        // 处理实时数据
+        function handleRealTimeData(data) {
+            switch (data.DataType) {
+                case 'SystemStatus':
+                    updateSystemStatus(data.Data);
+                    break;
+                case 'DeviceStatus':
+                    updateDeviceStatus(data.Data);
+                    break;
+                case 'ProductionData':
+                    updateProductionData(data.Data);
+                    break;
+                case 'LogMessage':
+                    addLogMessage(data.Data);
+                    break;
+            }
+        }
+
+        // 更新系统状态
+        function updateSystemStatus(status) {
+            document.getElementById('systemStatus').textContent = status.IsRunning ? '运行中' : '已停止';
+            document.getElementById('systemStatus').className = 'status-badge ' + (status.IsRunning ? 'status-running' : 'status-stopped');
+            document.getElementById('orderCount').textContent = status.ProductionStats?.TotalOrders || 0;
+            document.getElementById('stationCount').textContent = status.StationCount || 0;
+        }
+
+        // 更新设备状态
+        function updateDeviceStatus(devices) {
+            const deviceList = document.getElementById('deviceList');
+            deviceList.innerHTML = '';
+            
+            devices.forEach(device => {
+                const deviceItem = document.createElement('div');
+                deviceItem.className = 'device-item';
+                deviceItem.innerHTML = `
+                    <span class="device-name">${device.DeviceName}</span>
+                    <span class="device-status ${device.Status === '运行中' ? 'device-online' : 'device-offline'}">${device.Status}</span>
+                `;
+                deviceList.appendChild(deviceItem);
+            });
+        }
+
+        // 更新生产数据
+        function updateProductionData(stats) {
+            document.getElementById('totalQuantity').textContent = stats.TotalQuantity || 0;
+            document.getElementById('passQuantity').textContent = stats.PassQuantity || 0;
+            document.getElementById('failQuantity').textContent = stats.FailQuantity || 0;
+            
+            const yieldRate = stats.YieldRate || 0;
+            document.getElementById('yieldRate').textContent = yieldRate.toFixed(2) + '%';
+            document.getElementById('yieldProgress').style.width = yieldRate + '%';
+        }
+
+        // 添加日志消息
+        function addLogMessage(log) {
+            const logContent = document.getElementById('logContent');
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            
+            const time = new Date(log.Timestamp).toLocaleTimeString();
+            const logClass = log.Level === 'ERROR' ? 'log-error' : 
+                            log.Level === 'WARNING' ? 'log-warning' : 'log-info';
+            
+            logEntry.innerHTML = `
+                <span class="log-time">[${time}]</span>
+                <span class="${logClass}">${log.Message}</span>
+            `;
+            
+            logContent.insertBefore(logEntry, logContent.firstChild);
+            
+            // 限制日志条数
+            if (logContent.children.length > 100) {
+                logContent.removeChild(logContent.lastChild);
+            }
+        }
+
+        // 远程控制函数
+        async function startSystem() {
+            await sendCommand('StartSystem', {});
+        }
+
+        async function stopSystem() {
+            await sendCommand('StopSystem', {});
+        }
+
+        async function resetSystem() {
+            await sendCommand('ResetSystem', {});
+        }
+
+        async function startStation() {
+            const stationName = document.getElementById('stationSelect').value;
+            if (!stationName) {
+                alert('请选择工作站');
+                return;
+            }
+            await sendCommand('StartStation', { StationName: stationName });
+        }
+
+        async function stopStation() {
+            const stationName = document.getElementById('stationSelect').value;
+            if (!stationName) {
+                alert('请选择工作站');
+                return;
+            }
+            await sendCommand('StopStation', { StationName: stationName });
+        }
+
+        async function resetStation() {
+            const stationName = document.getElementById('stationSelect').value;
+            if (!stationName) {
+                alert('请选择工作站');
+                return;
+            }
+            await sendCommand('ResetStation', { StationName: stationName });
+        }
+
+        // 发送命令到服务器
+        async function sendCommand(commandType, parameters) {
+            const command = {
+                CommandId: generateCommandId(),
+                CommandType: commandType,
+                Parameters: parameters,
+                ExecuteTime: new Date().toISOString()
+            };
+
+            try {
+                const response = await fetch('http://localhost:8081/api/command', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(command)
+                });
+
+                const result = await response.json();
+                if (result.Success) {
+                    alert(result.Message);
+                } else {
+                    alert('命令执行失败: ' + result.Message);
+                }
+            } catch (error) {
+                console.error('发送命令失败:', error);
+                alert('发送命令失败: ' + error.message);
+            }
+        }
+
+        // 生成命令ID
+        function generateCommandId() {
+            return 'CMD-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+        }
+
+        // 更新时间显示
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('currentTime').textContent = now.toLocaleString('zh-CN');
+        }
+
+        // 模拟系统性能数据
+        function simulatePerformanceData() {
+            const cpuUsage = Math.random() * 30 + 10;
+            const memoryUsage = Math.random() * 40 + 20;
+            
+            document.getElementById('cpuUsage').textContent = cpuUsage.toFixed(1) + '%';
+            document.getElementById('cpuProgress').style.width = cpuUsage + '%';
+            document.getElementById('memoryUsage').textContent = memoryUsage.toFixed(1) + '%';
+            document.getElementById('memoryProgress').style.width = memoryUsage + '%';
+        }
+
+        // 页面加载完成后初始化
+        window.onload = function() {
+            initWebSocket();
+            setInterval(updateTime, 1000);
+            setInterval(simulatePerformanceData, 2000);
+            updateTime();
+            simulatePerformanceData();
+        };
+    </script>
+</body>
+</html>

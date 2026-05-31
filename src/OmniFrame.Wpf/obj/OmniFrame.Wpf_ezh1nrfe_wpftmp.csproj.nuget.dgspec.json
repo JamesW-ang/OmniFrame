@@ -1,0 +1,789 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Wpf/OmniFrame.Wpf.csproj": {}
+  },
+  "projects": {
+    "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj",
+        "projectName": "OmniFrame.Common",
+        "projectPath": "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj",
+        "packagesPath": "/Users/james/.nuget/packages/",
+        "outputPath": "/Users/james/Desktop/Upper/Upper/src/Common/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/james/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[4.3.1, )"
+            },
+            "Serilog.Enrichers.Environment": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
+            "Serilog.Enrichers.Process": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Serilog.Enrichers.Thread": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Serilog.Sinks.Async": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[6.1.1, )"
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/james/Desktop/Upper/Upper/src/Communication/Communication.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/james/Desktop/Upper/Upper/src/Communication/Communication.csproj",
+        "projectName": "OmniFrame.Communication",
+        "projectPath": "/Users/james/Desktop/Upper/Upper/src/Communication/Communication.csproj",
+        "packagesPath": "/Users/james/.nuget/packages/",
+        "outputPath": "/Users/james/Desktop/Upper/Upper/src/Communication/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/james/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {
+              "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/james/Desktop/Upper/Upper/src/DataAccess/DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/james/Desktop/Upper/Upper/src/DataAccess/DataAccess.csproj",
+        "projectName": "OmniFrame.DataAccess",
+        "projectPath": "/Users/james/Desktop/Upper/Upper/src/DataAccess/DataAccess.csproj",
+        "packagesPath": "/Users/james/.nuget/packages/",
+        "outputPath": "/Users/james/Desktop/Upper/Upper/src/DataAccess/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/james/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {
+              "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.33, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "System.Data.SQLite": {
+              "target": "Package",
+              "version": "[1.0.118, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/james/Desktop/Upper/Upper/src/MotionIO/MotionIO.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/james/Desktop/Upper/Upper/src/MotionIO/MotionIO.csproj",
+        "projectName": "MotionIO",
+        "projectPath": "/Users/james/Desktop/Upper/Upper/src/MotionIO/MotionIO.csproj",
+        "packagesPath": "/Users/james/.nuget/packages/",
+        "outputPath": "/Users/james/Desktop/Upper/Upper/src/MotionIO/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/james/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {
+              "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Core/OmniFrame.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Core/OmniFrame.Core.csproj",
+        "projectName": "OmniFrame.Core",
+        "projectPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Core/OmniFrame.Core.csproj",
+        "packagesPath": "/Users/james/.nuget/packages/",
+        "outputPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/james/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {
+              "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/Communication/Communication.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Communication/Communication.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/DataAccess/DataAccess.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/DataAccess/DataAccess.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/MotionIO/MotionIO.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/MotionIO/MotionIO.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Sdk/OmniFrame.Sdk.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Sdk/OmniFrame.Sdk.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/Plc/Plc.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Plc/Plc.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.102.3, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Sdk/OmniFrame.Sdk.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Sdk/OmniFrame.Sdk.csproj",
+        "projectName": "OmniFrame.Sdk",
+        "projectPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Sdk/OmniFrame.Sdk.csproj",
+        "packagesPath": "/Users/james/.nuget/packages/",
+        "outputPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Sdk/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/james/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Simulation/OmniFrame.Simulation.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Simulation/OmniFrame.Simulation.csproj",
+        "projectName": "OmniFrame.Simulation",
+        "projectPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Simulation/OmniFrame.Simulation.csproj",
+        "packagesPath": "/Users/james/.nuget/packages/",
+        "outputPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Simulation/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/james/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {
+              "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/MotionIO/MotionIO.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/MotionIO/MotionIO.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Core/OmniFrame.Core.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Core/OmniFrame.Core.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/Plc/Plc.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Plc/Plc.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Wpf/OmniFrame.Wpf.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Wpf/OmniFrame.Wpf.csproj",
+        "projectName": "OmniFrame.Wpf",
+        "projectPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Wpf/OmniFrame.Wpf.csproj",
+        "packagesPath": "/Users/james/.nuget/packages/",
+        "outputPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Wpf/obj/",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "configFilePaths": [
+          "/Users/james/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net48",
+          "net8.0-windows"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/Communication/Communication.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Communication/Communication.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/DataAccess/DataAccess.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/DataAccess/DataAccess.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/MotionIO/MotionIO.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/MotionIO/MotionIO.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Core/OmniFrame.Core.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Core/OmniFrame.Core.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Simulation/OmniFrame.Simulation.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Simulation/OmniFrame.Simulation.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/Plc/Plc.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Plc/Plc.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/RemoteMonitor/RemoteMonitor.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/RemoteMonitor/RemoteMonitor.csproj"
+              }
+            }
+          },
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {
+              "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/Communication/Communication.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Communication/Communication.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/DataAccess/DataAccess.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/DataAccess/DataAccess.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/MotionIO/MotionIO.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/MotionIO/MotionIO.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Core/OmniFrame.Core.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Core/OmniFrame.Core.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Simulation/OmniFrame.Simulation.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Simulation/OmniFrame.Simulation.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/Plc/Plc.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Plc/Plc.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/RemoteMonitor/RemoteMonitor.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/RemoteMonitor/RemoteMonitor.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "noWarn": [
+            "NU1702"
+          ],
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Xaml.Behaviors.Wpf": {
+              "target": "Package",
+              "version": "[1.1.77, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.22, 8.0.22]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json"
+        },
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            },
+            "Microsoft.Xaml.Behaviors.Wpf": {
+              "target": "Package",
+              "version": "[1.1.77, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/james/Desktop/Upper/Upper/src/Plc/Plc.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/james/Desktop/Upper/Upper/src/Plc/Plc.csproj",
+        "projectName": "Plc",
+        "projectPath": "/Users/james/Desktop/Upper/Upper/src/Plc/Plc.csproj",
+        "packagesPath": "/Users/james/.nuget/packages/",
+        "outputPath": "/Users/james/Desktop/Upper/Upper/src/Plc/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/james/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {
+              "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/Communication/Communication.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Communication/Communication.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/james/Desktop/Upper/Upper/src/RemoteMonitor/RemoteMonitor.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/james/Desktop/Upper/Upper/src/RemoteMonitor/RemoteMonitor.csproj",
+        "projectName": "RemoteMonitor",
+        "projectPath": "/Users/james/Desktop/Upper/Upper/src/RemoteMonitor/RemoteMonitor.csproj",
+        "packagesPath": "/Users/james/.nuget/packages/",
+        "outputPath": "/Users/james/Desktop/Upper/Upper/src/RemoteMonitor/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/james/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {
+              "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Common/Common.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/Communication/Communication.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/Communication/Communication.csproj"
+              },
+              "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Core/OmniFrame.Core.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Core/OmniFrame.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.17.0, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.17.0, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

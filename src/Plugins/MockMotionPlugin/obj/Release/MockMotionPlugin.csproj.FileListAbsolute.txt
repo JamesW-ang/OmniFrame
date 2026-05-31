@@ -1,0 +1,10 @@
+/Users/james/Desktop/Upper_1/Upper/Plugins/MockMotionPlugin/1.0.0/MockMotionPlugin.dll
+/Users/james/Desktop/Upper_1/Upper/Plugins/MockMotionPlugin/1.0.0/MockMotionPlugin.pdb
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockMotionPlugin/obj/Release/MockMotionPlugin.csproj.AssemblyReference.cache
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockMotionPlugin/obj/Release/MockMotionPlugin.GeneratedMSBuildEditorConfig.editorconfig
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockMotionPlugin/obj/Release/MockMotionPlugin.AssemblyInfoInputs.cache
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockMotionPlugin/obj/Release/MockMotionPlugin.AssemblyInfo.cs
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockMotionPlugin/obj/Release/MockMotionPlugin.csproj.CoreCompileInputs.cache
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockMotionPlugin/obj/Release/MockMoti.D7B9CF05.Up2Date
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockMotionPlugin/obj/Release/MockMotionPlugin.dll
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockMotionPlugin/obj/Release/MockMotionPlugin.pdb

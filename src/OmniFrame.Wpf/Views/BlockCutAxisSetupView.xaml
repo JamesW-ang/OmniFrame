@@ -1,0 +1,20 @@
+<UserControl x:Class="OmniFrame.Wpf.Views.BlockCutAxisSetupView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="12"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="300"/></Grid.ColumnDefinitions>
+        <DataGrid Grid.Column="0" ItemsSource="{Binding Axes}" SelectedItem="{Binding SelectedAxis}" AutoGenerateColumns="True"
+                  Background="{StaticResource SurfaceBrush}" Foreground="{StaticResource TextBrush}"/>
+        <Border Grid.Column="1" Background="{StaticResource SurfaceBrush}" CornerRadius="4" Padding="12" Margin="8,0,0,0">
+            <ScrollViewer><StackPanel>
+                <TextBlock Text="{Binding AxisNo, StringFormat=轴 {0} 参数}" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="0,0,0,8"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4"><TextBlock Text="速度:" Width="80" Foreground="{StaticResource TextSecondaryBrush}"/><TextBox Text="{Binding Vel}" Width="80"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4"><TextBlock Text="加速度:" Width="80" Foreground="{StaticResource TextSecondaryBrush}"/><TextBox Text="{Binding Acc}" Width="80"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4"><TextBlock Text="减速度:" Width="80" Foreground="{StaticResource TextSecondaryBrush}"/><TextBox Text="{Binding Dec}" Width="80"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4"><TextBlock Text="回零速度:" Width="80" Foreground="{StaticResource TextSecondaryBrush}"/><TextBox Text="{Binding HomeVel}" Width="80"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4"><TextBlock Text="回零偏移:" Width="80" Foreground="{StaticResource TextSecondaryBrush}"/><TextBox Text="{Binding HomeOff}" Width="80"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4"><TextBlock Text="正限位:" Width="80" Foreground="{StaticResource TextSecondaryBrush}"/><TextBox Text="{Binding LimP}" Width="80"/></StackPanel>
+                <StackPanel Orientation="Horizontal"><TextBlock Text="负限位:" Width="80" Foreground="{StaticResource TextSecondaryBrush}"/><TextBox Text="{Binding LimN}" Width="80"/></StackPanel>
+            </StackPanel></ScrollViewer>
+        </Border>
+    </Grid>
+</UserControl>

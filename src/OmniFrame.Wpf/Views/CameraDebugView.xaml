@@ -1,0 +1,14 @@
+<UserControl x:Class="OmniFrame.Wpf.Views.CameraDebugView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="12"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="相机调试" FontSize="18" Foreground="{StaticResource TextBrush}" Margin="0,0,0,12"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                <TextBlock Text="曝光时间 (ms):" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center" Width="120"/>
+                <TextBox Text="{Binding ExposureMs}" Width="80"/>
+            </StackPanel>
+            <TextBlock Text="{Binding Status}" Foreground="{StaticResource AccentBrush}" Margin="0,4,0,0"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

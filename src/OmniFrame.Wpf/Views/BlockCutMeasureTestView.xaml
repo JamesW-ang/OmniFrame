@@ -1,0 +1,24 @@
+<UserControl x:Class="OmniFrame.Wpf.Views.BlockCutMeasureTestView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="12"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="250"/></Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Background="{StaticResource SurfaceDarkBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="4" Margin="0,0,8,0">
+            <TextBlock Text="(视觉检测预览)" Foreground="{StaticResource TextSecondaryBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+        <Border Grid.Column="1" Background="{StaticResource SurfaceBrush}" CornerRadius="4" Padding="12">
+            <StackPanel>
+                <TextBlock Text="视觉测量测试" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="0,0,0,8"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,6"><TextBlock Text="通道:" Width="60" Foreground="{StaticResource TextSecondaryBrush}"/><TextBox Text="{Binding Channel}" Width="60"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,8"><TextBlock Text="报警阈值(ms):" Width="90" Foreground="{StaticResource TextSecondaryBrush}"/><TextBox Text="{Binding WarnTimeMs}" Width="80"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                    <Button Content="通道测试" Width="80" Background="{StaticResource AccentBrush}" Command="{Binding TestCmd}" Margin="0,0,4,0"/>
+                    <Button Content="视觉扫描" Width="80" Background="{StaticResource RunBrush}" Command="{Binding ScanCmd}"/>
+                </StackPanel>
+                <TextBlock Foreground="{StaticResource TextSecondaryBrush}"><Run Text="耗时: "/><Run Text="{Binding Elapsed}" Foreground="{StaticResource AccentBrush}"/></TextBlock>
+                <TextBlock Foreground="{StaticResource TextSecondaryBrush}" Margin="0,4,0,0"><Run Text="状态: "/><Run Text="{Binding CameraStatus}" Foreground="{StaticResource AccentBrush}"/></TextBlock>
+                <Separator Background="{StaticResource BorderBrush}" Margin="0,8"/>
+                <TextBlock Text="{Binding ResultText}" Foreground="{StaticResource AccentBrush}" FontSize="14"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

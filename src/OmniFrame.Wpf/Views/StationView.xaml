@@ -1,0 +1,12 @@
+<UserControl x:Class="OmniFrame.Wpf.Views.StationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="12"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="{Binding StateText, StringFormat='系统状态: {0}'}" FontSize="16" Foreground="{StaticResource TextBrush}" Margin="0,0,0,12"/>
+        <ItemsControl Grid.Row="1" ItemsSource="{Binding Stations}">
+            <ItemsControl.ItemTemplate><DataTemplate><Border Background="{StaticResource SurfaceBrush}" CornerRadius="4" Padding="12" Margin="0,4">
+                <StackPanel Orientation="Horizontal"><TextBlock Text="{Binding Name}" Width="180" Foreground="{StaticResource TextBrush}" FontSize="14"/><TextBlock Text="{Binding State}" Foreground="{StaticResource AccentBrush}" FontSize="13"/></StackPanel>
+            </Border></DataTemplate></ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>

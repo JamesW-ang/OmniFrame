@@ -1,0 +1,10 @@
+/Users/james/Desktop/Upper_1/Upper/Plugins/MockBusinessPlugin/1.0.0/MockBusinessPlugin.dll
+/Users/james/Desktop/Upper_1/Upper/Plugins/MockBusinessPlugin/1.0.0/MockBusinessPlugin.pdb
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockBusinessPlugin/obj/Release/MockBusinessPlugin.csproj.AssemblyReference.cache
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockBusinessPlugin/obj/Release/MockBusinessPlugin.GeneratedMSBuildEditorConfig.editorconfig
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockBusinessPlugin/obj/Release/MockBusinessPlugin.AssemblyInfoInputs.cache
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockBusinessPlugin/obj/Release/MockBusinessPlugin.AssemblyInfo.cs
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockBusinessPlugin/obj/Release/MockBusinessPlugin.csproj.CoreCompileInputs.cache
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockBusinessPlugin/obj/Release/MockBusi.6A728E94.Up2Date
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockBusinessPlugin/obj/Release/MockBusinessPlugin.dll
+/Users/james/Desktop/Upper_1/Upper/src/Plugins/MockBusinessPlugin/obj/Release/MockBusinessPlugin.pdb

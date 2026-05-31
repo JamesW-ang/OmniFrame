@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ErrorCodes>
+  <ErrorCode id="E001" message="系统初始化失败" severity="Error" />
+  <ErrorCode id="E002" message="运动控制卡连接失败" severity="Error" />
+  <ErrorCode id="E003" message="PLC 连接失败" severity="Error" />
+  <ErrorCode id="E004" message="视觉系统初始化失败" severity="Error" />
+  <ErrorCode id="E005" message="MES 连接失败" severity="Error" />
+  <ErrorCode id="E006" message="机器人初始化失败" severity="Error" />
+  <ErrorCode id="E007" message="IO 控制失败" severity="Error" />
+  <ErrorCode id="E008" message="气缸控制失败" severity="Error" />
+  <ErrorCode id="E009" message="产品检测失败" severity="Warning" />
+  <ErrorCode id="E010" message="生产数据上传失败" severity="Warning" />
+  <ErrorCode id="E011" message="配置文件读取失败" severity="Error" />
+  <ErrorCode id="E012" message="日志文件写入失败" severity="Warning" />
+  <ErrorCode id="E013" message="网络连接断开" severity="Warning" />
+  <ErrorCode id="E014" message="数据库操作失败" severity="Error" />
+  <ErrorCode id="E015" message="参数配置错误" severity="Warning" />
+</ErrorCodes>

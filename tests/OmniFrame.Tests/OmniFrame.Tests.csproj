@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>10.0</LangVersion>
+    <RootNamespace>OmniFrame.Tests</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="4.0.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="Moq" Version="4.20.69" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.2" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\OmniFrame.Core\OmniFrame.Core.csproj" />
+    <ProjectReference Include="..\..\src\Common\Common.csproj" />
+    <ProjectReference Include="..\..\src\Plc\Plc.csproj" />
+    <ProjectReference Include="..\..\src\Communication\Communication.csproj" />
+    <ProjectReference Include="..\..\src\MotionIO\MotionIO.csproj" />
+    <ProjectReference Include="..\..\src\DataAccess\DataAccess.csproj" />
+    <ProjectReference Include="..\..\src\OmniFrame\OmniFrame.csproj" />
+    <ProjectReference Include="..\..\src\OmniFrame.Simulation\OmniFrame.Simulation.csproj" />
+    <ProjectReference Include="..\..\src\RemoteMonitor\RemoteMonitor.csproj" />
+  </ItemGroup>
+
+</Project>

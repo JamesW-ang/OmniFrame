@@ -1,0 +1,45 @@
+<UserControl x:Class="OmniFrame.Wpf.Views.MotionSetView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="12"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+        <!-- 左：轴参数 -->
+        <Border Background="{StaticResource SurfaceBrush}" CornerRadius="4" Padding="12" Margin="0,0,4,0">
+            <ScrollViewer><StackPanel>
+                <TextBlock Text="轴参数设置" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="0,0,0,8"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4"><TextBlock Text="轴号:" Width="80" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Text="{Binding SelectedAxis}" Width="60" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4"><TextBlock Text="速度(mm/s):" Width="80" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Text="{Binding Velocity}" Width="80" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4"><TextBlock Text="加速度:" Width="80" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Text="{Binding Acceleration}" Width="80" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4"><TextBlock Text="减速度:" Width="80" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Text="{Binding Deceleration}" Width="80" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4"><TextBlock Text="回零速度:" Width="80" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Text="{Binding HomeVelocity}" Width="80" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4"><TextBlock Text="回零偏移:" Width="80" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Text="{Binding HomeOffset}" Width="80" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4"><TextBlock Text="正限位:" Width="80" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Text="{Binding SoftLimitP}" Width="80" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,8"><TextBlock Text="负限位:" Width="80" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Text="{Binding SoftLimitN}" Width="80" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}"/></StackPanel>
+                <CheckBox Content="启用软限位" IsChecked="{Binding EnableSoftLimit}" Foreground="{StaticResource TextBrush}" Margin="0,0,0,8"/>
+                <Button Content="应用参数" Background="{StaticResource AccentBrush}" Command="{Binding ApplyParamsCmd}" Margin="0,0,0,4"/>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <Button Content="伺服ON" Width="70" Background="{StaticResource RunBrush}" Command="{Binding ServoOnCmd}" Margin="0,0,4,0"/>
+                    <Button Content="伺服OFF" Width="70" Background="{StaticResource ErrorBrush}" Command="{Binding ServoOffCmd}"/>
+                </StackPanel>
+                <TextBlock Margin="0,4,0,0"><Run Text="伺服: " Foreground="{StaticResource TextSecondaryBrush}"/><Run Text="{Binding IsServoOn, StringFormat={}}" Foreground="{StaticResource AccentBrush}"/></TextBlock>
+            </StackPanel></ScrollViewer>
+        </Border>
+        <!-- 右：JOG 控制 + 状态 -->
+        <Border Background="{StaticResource SurfaceBrush}" CornerRadius="4" Padding="12" Margin="4,0,0,0">
+            <StackPanel>
+                <TextBlock Text="运动控制" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="0,0,0,8"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4"><TextBlock Text="目标位置:" Width="80" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Text="{Binding TargetPos}" Width="100" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,8"><TextBlock Text="速度:" Width="80" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Text="{Binding JogSpeed}" Width="100" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
+                    <Button Content="绝对移动" Width="80" Background="{StaticResource RunBrush}" Command="{Binding AbsMoveCmd}" Margin="0,0,4,0"/>
+                    <Button Content="相对移动" Width="80" Background="{StaticResource WarnBrush}" Command="{Binding RelMoveCmd}" Margin="0,0,4,0"/>
+                    <Button Content="停止" Width="60" Background="{StaticResource ErrorBrush}" Command="{Binding StopCmd}"/>
+                </StackPanel>
+                <Button Content="回原点" Width="80" Background="{StaticResource AccentBrush}" Command="{Binding HomeCmd}" Margin="0,8"/>
+                <Separator Background="{StaticResource BorderBrush}" Margin="0,12"/>
+                <TextBlock Text="轴状态" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="0,0,0,8"/>
+                <TextBlock Foreground="{StaticResource AccentBrush}" FontSize="18" Text="{Binding CurPos, StringFormat={}{0:F3} mm}"/>
+                <TextBlock Foreground="{StaticResource TextSecondaryBrush}" Margin="0,4,0,0"><Run Text="状态: "/><Run Text="{Binding AxisState}"/></TextBlock>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "LXktktPG4xw=",
+  "success": true,
+  "projectFilePath": "/Users/james/Desktop/Upper/Upper/src/Plugins/MockPlcPlugin/MockPlcPlugin.csproj",
+  "expectedPackageFiles": [
+    "/Users/james/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.3/microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "/Users/james/.nuget/packages/microsoft.netframework.referenceassemblies.net48/1.0.3/microsoft.netframework.referenceassemblies.net48.1.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

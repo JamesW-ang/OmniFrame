@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BlockCut>
+  <!-- Station_Load (上料工站 — LoadY) -->
+  <CasselZFirstPos>0</CasselZFirstPos>
+  <CasselZSpace>30</CasselZSpace>
+  <TrayYGetTray>50</TrayYGetTray>
+  <TrayYCode>50</TrayYCode>
+  <TrayYGetSlice>100</TrayYGetSlice>
+  <TrayRowSpace>20</TrayRowSpace>
+
+  <!-- Station_Load2 (二次上料工站 — LoadX) -->
+  <TrayXGetSlice>100</TrayXGetSlice>
+  <TrayXSetSlice>200</TrayXSetSlice>
+  <TrayColSpace>20</TrayColSpace>
+  <BottomColSpace>25</BottomColSpace>
+
+  <!-- Station_CasselZ (料塔工站 — CasselZ) -->
+  <CasselCount>10</CasselCount>
+
+  <!-- Station_Adjust (矫正工站 — UVW + 相机) -->
+  <UVWAngle>0</UVWAngle>
+  <BottomYSetSlice>100</BottomYSetSlice>
+  <BottomYAdjustBottom>50</BottomYAdjustBottom>
+  <BottomRowSpace>25</BottomRowSpace>
+  <BottomColSpaceRecipe>20</BottomColSpaceRecipe>
+  <ObjectUnit>0.005</ObjectUnit>
+  <CameraBottomXRight>200</CameraBottomXRight>
+  <CameraBottomXLeft>0</CameraBottomXLeft>
+  <CameraXAdjustSlice1>180</CameraXAdjustSlice1>
+  <CameraXAdjustSlice2>20</CameraXAdjustSlice2>
+  <CameraXBottPos1>100</CameraXBottPos1>
+  <CameraZSafe>50</CameraZSafe>
+  <CameraZAdjustBottom>30</CameraZAdjustBottom>
+  <CameraZAdjustSlice>35</CameraZAdjustSlice>
+  <SliceY1Adjust>80</SliceY1Adjust>
+  <SliceY2Adjust>80</SliceY2Adjust>
+  <SliceXAdjust>150</SliceXAdjust>
+  <PosMax>0.5</PosMax>
+
+  <!-- 行列参数 -->
+  <TrayRows>5</TrayRows>
+  <TrayCols>4</TrayCols>
+  <BottomRows>5</BottomRows>
+  <BottomCols>4</BottomCols>
+
+  <!-- Station_BottomGet (底板取放工站 — BottomGetX) -->
+  <BottomXGetEmptyBottom>0</BottomXGetEmptyBottom>
+  <BottomXSetEmptyBottom>50</BottomXSetEmptyBottom>
+  <BottomXSetEmptyBottom2>100</BottomXSetEmptyBottom2>
+  <BottomXGetFullBottom>150</BottomXGetFullBottom>
+  <BottomXSetFullBottom>200</BottomXSetFullBottom>
+
+  <!-- 测试模式 -->
+  <IsSimulation>true</IsSimulation>
+  <IsEmptyTest>false</IsEmptyTest>
+  <IsCloseSliceCode>false</IsCloseSliceCode>
+  <IsCloseJigCode>false</IsCloseJigCode>
+</BlockCut>

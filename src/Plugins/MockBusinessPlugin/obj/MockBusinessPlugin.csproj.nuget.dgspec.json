@@ -1,0 +1,114 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/james/Desktop/Upper/Upper/src/Plugins/MockBusinessPlugin/MockBusinessPlugin.csproj": {}
+  },
+  "projects": {
+    "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Sdk/OmniFrame.Sdk.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Sdk/OmniFrame.Sdk.csproj",
+        "projectName": "OmniFrame.Sdk",
+        "projectPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Sdk/OmniFrame.Sdk.csproj",
+        "packagesPath": "/Users/james/.nuget/packages/",
+        "outputPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Sdk/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/james/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/james/Desktop/Upper/Upper/src/Plugins/MockBusinessPlugin/MockBusinessPlugin.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/james/Desktop/Upper/Upper/src/Plugins/MockBusinessPlugin/MockBusinessPlugin.csproj",
+        "projectName": "MockBusinessPlugin",
+        "projectPath": "/Users/james/Desktop/Upper/Upper/src/Plugins/MockBusinessPlugin/MockBusinessPlugin.csproj",
+        "packagesPath": "/Users/james/.nuget/packages/",
+        "outputPath": "/Users/james/Desktop/Upper/Upper/src/Plugins/MockBusinessPlugin/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/james/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {
+              "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Sdk/OmniFrame.Sdk.csproj": {
+                "projectPath": "/Users/james/Desktop/Upper/Upper/src/OmniFrame.Sdk/OmniFrame.Sdk.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

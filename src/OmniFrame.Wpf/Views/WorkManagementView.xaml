@@ -1,0 +1,22 @@
+<UserControl x:Class="OmniFrame.Wpf.Views.WorkManagementView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="12"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="300"/></Grid.ColumnDefinitions>
+        <DataGrid Grid.Column="0" ItemsSource="{Binding Orders}" SelectedItem="{Binding SelectedOrder}" AutoGenerateColumns="True"
+                  Background="{StaticResource SurfaceBrush}" Foreground="{StaticResource TextBrush}" RowBackground="{StaticResource SurfaceBrush}" BorderBrush="{StaticResource BorderBrush}"/>
+        <Border Grid.Column="1" Background="{StaticResource SurfaceBrush}" CornerRadius="4" Padding="12" Margin="8,0,0,0">
+            <StackPanel>
+                <TextBlock Text="工单管理" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="0,0,0,12"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,6"><TextBlock Text="工单号:" Width="70" Foreground="{StaticResource TextSecondaryBrush}"/><TextBox Text="{Binding OrderNo}" Width="160"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,6"><TextBlock Text="产品型号:" Width="70" Foreground="{StaticResource TextSecondaryBrush}"/><TextBox Text="{Binding ProductModel}" Width="160"/></StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,8"><TextBlock Text="目标数量:" Width="70" Foreground="{StaticResource TextSecondaryBrush}"/><TextBox Text="{Binding TargetQty}" Width="160"/></StackPanel>
+                <Button Content="创建工单" Background="{StaticResource AccentBrush}" Command="{Binding CreateCmd}" Margin="0,0,0,8"/>
+                <Button Content="开始生产" Background="{StaticResource RunBrush}" Command="{Binding StartCmd}" Margin="0,0,0,4"/>
+                <Button Content="结束工单" Background="{StaticResource ErrorBrush}" Command="{Binding EndCmd}" Margin="0,0,0,8"/>
+                <Button Content="刷新列表" Command="{Binding RefreshCmd}"/>
+                <Separator Background="{StaticResource BorderBrush}" Margin="0,12"/>
+                <TextBlock Foreground="{StaticResource AccentBrush}" FontSize="14" Text="{Binding Status}"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

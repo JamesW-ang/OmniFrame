@@ -40,3 +40,4 @@ OmniFrame.sln
 Dockerfile
 docker-compose.yml
 global.json
+blogs/

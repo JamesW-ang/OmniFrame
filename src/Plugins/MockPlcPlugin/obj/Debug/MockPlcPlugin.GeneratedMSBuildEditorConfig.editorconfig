@@ -1,0 +1,8 @@
+is_global = true
+build_property.RootNamespace = OmniFrame.Plugins.MockPlc
+build_property.ProjectDir = /Users/james/Desktop/Upper/Upper/src/Plugins/MockPlcPlugin/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 
+build_property.EnableCodeStyleSeverity = 

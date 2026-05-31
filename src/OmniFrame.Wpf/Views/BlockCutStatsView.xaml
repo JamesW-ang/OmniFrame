@@ -1,0 +1,18 @@
+<UserControl x:Class="OmniFrame.Wpf.Views.BlockCutStatsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="12"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,8">
+            <TextBlock Text="从:" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center" Width="30"/>
+            <TextBox Text="{Binding FromDate}" Width="120" Margin="0,0,12,0"/>
+            <TextBlock Text="到:" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center" Width="30"/>
+            <TextBox Text="{Binding ToDate}" Width="120" Margin="0,0,12,0"/>
+            <TextBlock Text="TopN:" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center" Width="40"/>
+            <TextBox Text="{Binding TopN}" Width="50" Margin="0,0,12,0"/>
+            <Button Content="查询" Command="{Binding QueryCommand}" Width="60"/>
+        </StackPanel>
+        <TextBlock Grid.Row="1" Text="{Binding Summary}" FontSize="14" FontWeight="Bold" Foreground="{StaticResource AccentBrush}" Margin="0,0,0,8"/>
+        <Separator Grid.Row="2" Background="{StaticResource BorderBrush}" Margin="0,0,0,8"/>
+        <DataGrid Grid.Row="3" ItemsSource="{Binding Records}" AutoGenerateColumns="True" Background="{StaticResource SurfaceBrush}" Foreground="{StaticResource TextBrush}" RowBackground="{StaticResource SurfaceBrush}" BorderBrush="{StaticResource BorderBrush}"/>
+    </Grid>
+</UserControl>

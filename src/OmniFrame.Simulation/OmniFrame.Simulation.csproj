@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MotionIO\MotionIO.csproj" />
+    <ProjectReference Include="..\Plc\Plc.csproj" />
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\OmniFrame.Core\OmniFrame.Core.csproj" />
+  </ItemGroup>
+</Project>

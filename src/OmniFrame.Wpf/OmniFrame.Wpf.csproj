@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <!--
+      多目标框架:
+        net48          — 兼容现有硬件 DLL (固高/雷赛/汇川仅 .NET Framework)
+        net8.0-windows — 跨平台就绪: ViewModel 纯 C# 零平台依赖, 后续可换 Avalonia
+    -->
+    <TargetFrameworks>net48;net8.0-windows</TargetFrameworks>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <LangVersion>10.0</LangVersion>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>OmniFrame.Wpf</RootNamespace>
+    <AssemblyName>OmniFrame.Wpf</AssemblyName>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>OmniFrame.Wpf.App</StartupObject>
+    <!-- 抑制 NU1702: net48 引用在 net8.0-windows 上兼容（Windows-only） -->
+    <NoWarn>$(NoWarn);NU1702</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.77" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OmniFrame.Core\OmniFrame.Core.csproj" />
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\Plc\Plc.csproj" />
+    <ProjectReference Include="..\Communication\Communication.csproj" />
+    <ProjectReference Include="..\MotionIO\MotionIO.csproj" />
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+    <ProjectReference Include="..\OmniFrame.Simulation\OmniFrame.Simulation.csproj" />
+    <ProjectReference Include="..\RemoteMonitor\RemoteMonitor.csproj" />
+  </ItemGroup>
+
+</Project>

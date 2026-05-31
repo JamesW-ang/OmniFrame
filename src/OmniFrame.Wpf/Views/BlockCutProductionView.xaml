@@ -1,0 +1,29 @@
+<UserControl x:Class="OmniFrame.Wpf.Views.BlockCutProductionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="12"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+        <!-- 顶栏信息 -->
+        <UniformGrid Grid.Row="0" Columns="6" Margin="0,0,0,8">
+            <StackPanel><TextBlock Text="工站号" Foreground="{StaticResource TextSecondaryBrush}" FontSize="10"/><TextBox Text="{Binding StationNo}" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}"/></StackPanel>
+            <StackPanel><TextBlock Text="机台号" Foreground="{StaticResource TextSecondaryBrush}" FontSize="10"/><TextBox Text="{Binding MachineNo}" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}"/></StackPanel>
+            <StackPanel><TextBlock Text="操作员" Foreground="{StaticResource TextSecondaryBrush}" FontSize="10"/><TextBox Text="{Binding OperatorName}" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}"/></StackPanel>
+            <StackPanel><TextBlock Text="物料号" Foreground="{StaticResource TextSecondaryBrush}" FontSize="10"/><TextBox Text="{Binding MaterialNo}" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}"/></StackPanel>
+            <StackPanel><TextBlock Text="行 / 列" Foreground="{StaticResource TextSecondaryBrush}" FontSize="10"/><StackPanel Orientation="Horizontal"><TextBox Text="{Binding RowCount}" Width="40" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}"/><TextBlock Text="×" Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" Margin="4,0"/><TextBox Text="{Binding ColCount}" Width="40" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}"/></StackPanel></StackPanel>
+            <StackPanel><TextBlock Text="运行时间" Foreground="{StaticResource TextSecondaryBrush}" FontSize="10"/><TextBlock Text="{Binding ElapsedTime}" Foreground="{StaticResource AccentBrush}" FontSize="14" FontWeight="Bold"/></StackPanel>
+        </UniformGrid>
+        <!-- 行列控制 -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,8">
+            <Button Content="拍照" Width="70" Background="{StaticResource AccentBrush}" Margin="0,0,4,0"/>
+            <Button Content="送板" Width="70" Background="{StaticResource RunBrush}" Margin="0,0,4,0"/>
+            <Button Content="设原点" Width="70" Background="{StaticResource WarnBrush}" Margin="0,0,4,0"/>
+            <Button Content="静态GRR" Width="80" Background="{StaticResource SurfaceBrush}"/>
+        </StackPanel>
+        <!-- 模组可视化网格 -->
+        <ItemsControl Grid.Row="2" ItemsSource="{Binding Modules}">
+            <ItemsControl.ItemsPanel><ItemsPanelTemplate><UniformGrid Columns="{Binding ColCount}"/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate><DataTemplate><Border Background="{StaticResource SurfaceBrush}" CornerRadius="2" Margin="1" Padding="4" Height="40">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center"><TextBlock Text="{Binding Row, StringFormat=R{0}}" FontSize="8" Foreground="{StaticResource TextSecondaryBrush}"/><TextBlock Text="{Binding Status}" FontSize="10" Foreground="{StaticResource TextBrush}"/></StackPanel>
+            </Border></DataTemplate></ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>

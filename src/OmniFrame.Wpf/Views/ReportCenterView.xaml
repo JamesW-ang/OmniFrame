@@ -1,0 +1,21 @@
+<UserControl x:Class="OmniFrame.Wpf.Views.ReportCenterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+            <RadioButton Content="日报" IsChecked="{Binding IsDaily}" Margin="0,0,12,0"
+                         Foreground="{StaticResource TextBrush}" GroupName="ReportType"/>
+            <RadioButton Content="周报" IsChecked="{Binding IsWeekly}" Margin="0,0,12,0"
+                         Foreground="{StaticResource TextBrush}" GroupName="ReportType"/>
+            <RadioButton Content="月报" IsChecked="{Binding IsMonthly}" Margin="0,0,12,0"
+                         Foreground="{StaticResource TextBrush}" GroupName="ReportType"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding ReportData}" AutoGenerateColumns="True"
+                  Background="{StaticResource SurfaceBrush}" Foreground="{StaticResource TextBrush}"
+                  RowBackground="{StaticResource SurfaceBrush}" BorderBrush="{StaticResource BorderBrush}"/>
+    </Grid>
+</UserControl>

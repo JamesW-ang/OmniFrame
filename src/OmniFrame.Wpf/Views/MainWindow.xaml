@@ -1,0 +1,151 @@
+<Window x:Class="OmniFrame.Wpf.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:OmniFrame.Wpf.ViewModels"
+        xmlns:local="clr-namespace:OmniFrame.Wpf.Views"
+        Title="OmniFrame — 工业自动化平台" Height="900" Width="1400"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundBrush}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+
+        <!-- ═══ 顶部工具栏 ═══ -->
+        <Border Grid.Row="0" Background="{StaticResource SurfaceBrush}">
+            <Grid Margin="12,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <TextBlock Text="OmniFrame" FontSize="16" FontWeight="Bold"
+                               Foreground="{StaticResource AccentBrush}" VerticalAlignment="Center"/>
+                    <Border Width="1" Background="{StaticResource BorderBrush}" Margin="16,4"/>
+                    <TextBlock Text="{Binding StatusText}" Foreground="{StaticResource TextBrush}"
+                               VerticalAlignment="Center" FontSize="13"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Ellipse Width="10" Height="10" Margin="0,0,6,0">
+                        <Ellipse.Style>
+                            <Style TargetType="Ellipse">
+                                <Setter Property="Fill" Value="{StaticResource IdleBrush}"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsRunning}" Value="True">
+                                        <Setter Property="Fill" Value="{StaticResource RunBrush}"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Ellipse.Style>
+                    </Ellipse>
+                    <TextBlock Text="{Binding CurrentTime}" Foreground="{StaticResource TextSecondaryBrush}"
+                               Margin="0,0,16,0" VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding UserInfo}" Foreground="{StaticResource TextSecondaryBrush}"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- ═══ 主体内容 ═══ -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- 左侧导航 -->
+            <Border Grid.Column="0" Background="{StaticResource SurfaceDarkBrush}">
+                <ListBox ItemsSource="{Binding NavItems}" SelectedItem="{Binding SelectedNavItem}"
+                         Background="Transparent" BorderThickness="0"
+                         DisplayMemberPath="Label"
+                         FontSize="14" Foreground="{StaticResource TextBrush}">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Padding" Value="16,12"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                                            <ContentPresenter/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource HoverBrush}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>
+            </Border>
+
+            <!-- 右侧内容区 -->
+            <Border Grid.Column="1" Background="{StaticResource BackgroundBrush}">
+                <ContentControl Content="{Binding CurrentView}">
+                    <ContentControl.Resources>
+                        <DataTemplate DataType="{x:Type vm:BlockCutViewModel}"><local:BlockCutMainView/></DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:BlockCutProductionViewModel}"><local:BlockCutProductionView/></DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:BlockCutStatsViewModel}"><local:BlockCutStatsView/></DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:ReportViewModel}"><local:ReportCenterView/></DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:RecipeViewModel}"><local:RecipeView/></DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:EquipmentViewModel}"><local:EquipmentView/></DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:StationViewModel}"><local:StationView/></DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:OeeViewModel}"><local:OeeView/></DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:SettingsViewModel}"><local:SettingsView/></DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:PluginViewModel}"><local:PluginManagerView/></DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:OperationLogViewModel}"><local:OperationLogView/></DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:CameraDebugViewModel}"><local:CameraDebugView/></DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:MotionSetViewModel}"><local:MotionSetView/></DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:FitLineToolViewModel}"><local:FitLineToolView/></DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:WorkManagementViewModel}"><local:WorkManagementView/></DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:AxisSetupViewModel}"><local:BlockCutAxisSetupView/></DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:MeasureTestViewModel}"><local:BlockCutMeasureTestView/></DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:PlaceholderViewModel}">
+                            <Border Background="{StaticResource SurfaceBrush}" Margin="20">
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="🚧" FontSize="48" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding ViewName}" FontSize="18"
+                                               Foreground="{StaticResource TextSecondaryBrush}"
+                                               HorizontalAlignment="Center" Margin="0,12,0,0"/>
+                                    <TextBlock Text="界面开发中..." FontSize="14"
+                                               Foreground="{StaticResource TextSecondaryBrush}"
+                                               HorizontalAlignment="Center" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ContentControl.Resources>
+                </ContentControl>
+            </Border>
+        </Grid>
+
+        <!-- ═══ 底部状态栏 ═══ -->
+        <Border Grid.Row="2" Background="{StaticResource SurfaceBrush}">
+            <Grid Margin="12,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <TextBlock Text="{Binding StatusText}" Foreground="{StaticResource TextSecondaryBrush}"
+                               VerticalAlignment="Center" FontSize="11"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Foreground="{StaticResource ErrorBrush}" VerticalAlignment="Center" FontSize="11">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value=""/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding HasAlarm}" Value="True">
+                                        <Setter Property="Text" Value="⚠ 报警"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <TextBlock Text="{Binding ActiveAlarmCount, StringFormat=' ({0})'}"
+                               Foreground="{StaticResource ErrorBrush}" VerticalAlignment="Center" FontSize="11"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

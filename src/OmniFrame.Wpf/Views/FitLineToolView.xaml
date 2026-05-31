@@ -1,0 +1,40 @@
+<UserControl x:Class="OmniFrame.Wpf.Views.FitLineToolView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="12"><Grid.ColumnDefinitions><ColumnDefinition Width="2*"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+        <!-- 左：图像 + 数据点 -->
+        <Grid Grid.Column="0" Margin="0,0,8,0"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
+                <Button Content="打开图片" Width="80" Command="{Binding OpenFileCommand}" Margin="0,0,4,0"/>
+                <TextBox Text="{Binding ImagePath}" Width="200" IsReadOnly="True" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextSecondaryBrush}"/>
+            </StackPanel>
+            <Border Grid.Row="1" Background="{StaticResource SurfaceDarkBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="4">
+                <TextBlock Text="(图像预览区)" Foreground="{StaticResource TextSecondaryBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <DataGrid Grid.Row="2" ItemsSource="{Binding Points}" AutoGenerateColumns="True" MaxHeight="120" Margin="0,4,0,0" Background="{StaticResource SurfaceBrush}" Foreground="{StaticResource TextBrush}"/>
+        </Grid>
+        <!-- 右：参数 + 结果 -->
+        <Border Grid.Column="1" Background="{StaticResource SurfaceBrush}" CornerRadius="4" Padding="12">
+            <ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel>
+                <TextBlock Text="搜索参数" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="0,0,0,8"/>
+                <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="100"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="阈值" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Threshold}" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}" Margin="0,0,0,4"/>
+                    <TextBlock Grid.Row="1" Text="Sigma" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Sigma}" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}" Margin="0,0,0,4"/>
+                    <TextBlock Grid.Row="2" Text="段宽度" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SegWidth}" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}" Margin="0,0,0,4"/>
+                    <TextBlock Grid.Row="3" Text="段步长" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SegStep}" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}" Margin="0,0,0,4"/>
+                    <TextBlock Grid.Row="4" Text="段数量" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Grid.Row="4" Grid.Column="1" Text="{Binding SegNum}" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}" Margin="0,0,0,4"/>
+                    <TextBlock Grid.Row="5" Text="最大点数" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Grid.Row="5" Grid.Column="1" Text="{Binding MaxPoints}" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}" Margin="0,0,0,4"/>
+                    <TextBlock Grid.Row="6" Text="迭代次数" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Iterations}" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}" Margin="0,0,0,4"/>
+                    <TextBlock Grid.Row="7" Text="距离因子" Foreground="{StaticResource TextSecondaryBrush}" VerticalAlignment="Center"/><TextBox Grid.Row="7" Grid.Column="1" Text="{Binding DistFactor}" Background="{StaticResource InputBrush}" Foreground="{StaticResource TextBrush}" Margin="0,0,0,8"/>
+                </Grid>
+                <Button Content="▶ 执行拟合" Height="36" Background="{StaticResource RunBrush}" Command="{Binding RunCommand}" Margin="0,0,0,12"/>
+                <Separator Background="{StaticResource BorderBrush}" Margin="0,0,0,12"/>
+                <TextBlock Text="拟合结果" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="0,0,0,8"/>
+                <TextBlock Foreground="{StaticResource AccentBrush}" FontSize="13"><Run Text="R² = "/><Run Text="{Binding RSquared, StringFormat={}{0:F4}}"/></TextBlock>
+                <TextBlock Foreground="{StaticResource TextSecondaryBrush}" Margin="0,4,0,0"><Run Text="起点: "/><Run Text="{Binding ResultStart}"/></TextBlock>
+                <TextBlock Foreground="{StaticResource TextSecondaryBrush}"><Run Text="终点: "/><Run Text="{Binding ResultEnd}"/></TextBlock>
+                <TextBlock Foreground="{StaticResource TextSecondaryBrush}"><Run Text="角度: "/><Run Text="{Binding ResultAngle}"/></TextBlock>
+            </StackPanel></ScrollViewer>
+        </Border>
+    </Grid>
+</UserControl>
