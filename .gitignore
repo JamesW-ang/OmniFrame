@@ -1,0 +1,42 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# —— 以下目录不公开 ——
+src/
+tests/
+tools/
+Plugins/
+lib/
+packages/
+
+# Build artifacts
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.cache
+*.vs/
+
+# NuGet
+*.nupkg
+
+# Logs
+Logs/
+*.log
+
+# Temp
+*.tmp
+*.temp
+~$*
+
+# Project files (not public)
+OmniFrame.sln
+Dockerfile
+docker-compose.yml
+global.json
